@@ -1,0 +1,11 @@
+//
+// Created by Robin on 2021-11-05.
+//
+
+#ifndef EMBEDDED_LAB_3_ROBIN_ELLINGSEN_BUTTON_H
+#define EMBEDDED_LAB_3_ROBIN_ELLINGSEN_BUTTON_H
+
+void button_init();
+
+
+#endif //EMBEDDED_LAB_3_ROBIN_ELLINGSEN_BUTTON_H
