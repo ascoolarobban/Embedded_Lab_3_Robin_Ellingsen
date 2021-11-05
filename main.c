@@ -3,12 +3,14 @@
 #include <avr/pgmspace.h>
 #include <stdio.h>
 
+
 #include "led.h"
 #include "serial.h"
 #include "timer.h"
 #include "button.h"
 
-void main (void) {
+
+int main (void) {
 
 	LED_init();
 	uart_init();
@@ -17,7 +19,10 @@ void main (void) {
     sei();
 
 	while (1) {
+	    button_state();
+	    print_state();
 
 	}
+	return 0;
 }
 
