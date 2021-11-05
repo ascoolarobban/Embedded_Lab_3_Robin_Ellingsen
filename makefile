@@ -6,7 +6,8 @@ SOURCES = \
 		  serial.c \
 		  led.c \
 		  timer.c\
-		  button.c
+		  button.c\
+		  adc.c
 
 PORT = /dev/cu.usbmodem14201
 

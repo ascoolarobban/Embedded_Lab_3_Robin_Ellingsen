@@ -8,7 +8,9 @@
 #include "serial.h"
 #include "timer.h"
 #include "button.h"
+#include "adc.h"
 
+volatile uint8_t adcValue = 0;
 
 int main (void) {
 
@@ -16,13 +18,19 @@ int main (void) {
 	uart_init();
 	timer_init();
     button_init();
+    adc_init();
     sei();
 
 	while (1) {
-	    button_state();
-	    print_state();
-
 	}
 	return 0;
 }
+ISR(ADC_vect){
+    adcValue = ADCH;
+}
+ISR(TIMER2_COMPA_vect){
+    ADCSRA |= (1<<ADSC);
+    OCR0A = adcValue;
+}
+
 

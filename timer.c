@@ -2,15 +2,28 @@
 #include "timer.h"
 
 void timer_init() {
-
+    //timer0
     TCCR0A |= _BV(WGM01);
+    TCCR0A |= _BV(WGM00);
 
 
-    TCCR0B |= _BV(CS02);
+
+    TCCR0B |= _BV(CS01);
     TCCR0B |= _BV(CS00);
 
-    OCR0A = 155;
+    TCCR0A |= (1<<COM0A1);
 
-    TIMSK0 |= _BV(OCIE0A); //The corresponding interrupt is executed if a compare match in Timer/Counter0 occurs
+    //timer 2
+    TCCR2A |= (1<<WGM21);
+
+    TCNT2 = 0;
+
+    TCCR2B |= _BV(CS20);
+    TCCR2B |= _BV(CS21);
+    TCCR2B |= _BV(CS22);
+
+    OCR2A = 155;
+
+    TIMSK2 |= _BV(OCIE2A);
 }
 
